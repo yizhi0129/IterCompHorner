@@ -1,0 +1,13 @@
+Degree 50; 10 independent trials per target; RNG seed 0 (twister).
+x and v independently uniform on [-2^16,-2^-16] U [2^-16,2^16].
+Methods: iter_CompHorner_accsum (iter_stop_test_accsum_mex), rpoly_eval_interval (verified, minimum 80 decimal digits).
+Iteration cap: 100 per method. Times are medians of per-trial TIMEIT estimates in seconds per evaluation, using identical p and x.
+Input generation and warmup excluded. Trials that reached the iteration cap without convergence are excluded per method.
+
+target	actual_cond_median	iter_CompHorner_accsum_seconds	rpoly_eval_interval_seconds	accsum_n	rpoly_n
+1e5	3.150453520e+05	1.971392708e-04	4.923004194e-02	10	10
+1e10	2.581295907e+10	1.805426319e-04	4.711302110e-02	10	10
+1e15	2.238414558e+15	2.775238125e-04	2.754126461e-01	10	10
+1e20	1.545921073e+20	3.045550625e-04	2.716157711e-01	10	10
+1e25	1.489684935e+25	2.969873542e-04	2.759545419e-01	10	10
+1e30	1.661775586e+30	3.498036042e-04	3.862293961e-01	10	10

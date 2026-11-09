@@ -1,0 +1,47 @@
+=== iter_CompHorner revised AccSumK-H / MEX-stop condition sweep ===
+
+implementation = iter_CompHorner_accsum
+stop = iter_stop_test_accsum_mex
+degree = 50
+x = 1.03
+v = 0.001
+max_iter = 100
+  target        actual_condition    stopped   iteration  ref_precision       rel_error   relerr_lt_u
+  ------        ----------------    -------   ---------  -------------       ---------   -----------
+1e2        7.057368030768472e+03       true           2            159    7.148928e-17          true
+1e3        1.488855783389881e+04       true           2            159    1.651171e-17          true
+1e4        6.013814694295247e+04       true           2            159    2.806995e-17          true
+1e5        8.839028021625699e+05       true           2            159    1.005329e-16          true
+1e6        4.688384114456632e+06       true           2            159    8.471352e-17          true
+1e7        3.522388527060077e+07       true           2            159    9.514774e-18          true
+1e8        3.638353066412703e+08       true           2            159    4.511570e-17          true
+1e9        2.441451334921053e+09       true           2            159    4.377106e-18          true
+1e10       3.584474094530112e+10       true           2            159    1.440359e-17          true
+1e11       2.089889469675349e+11       true           2            159    5.620701e-19          true
+1e12       1.145174470086068e+12       true           2            159    6.533079e-17          true
+1e13       5.189025553635962e+13       true           2            159    1.061080e-16          true
+1e14       3.364484819082446e+14       true           3            212    9.429168e-17          true
+1e15       3.077719972889932e+15       true           3            212    7.509449e-17          true
+1e16       3.059642471546336e+16       true           3            212    1.904837e-17          true
+1e17       6.103589823635371e+16       true           3            212    2.372617e-18          true
+1e18       1.523444807374040e+18       true           3            212    1.408383e-17          true
+1e19       2.771801339334035e+19       true           3            212    6.804527e-17          true
+1e20       1.602333403882467e+20       true           3            212    6.703418e-17          true
+1e21       2.122791948267251e+21       true           3            212    3.213321e-17          true
+1e22       1.596378529797123e+22       true           3            212    4.622599e-17          true
+1e23       1.387489472973469e+23       true           3            212    7.757435e-18          true
+1e24       2.008246831809210e+24       true           3            212    4.459003e-17          true
+1e25       1.704510796274989e+25       true           3            212    4.300526e-17          true
+1e26       2.138582205182797e+26       true           3            212    2.853226e-17          true
+1e27       9.865894448615063e+26       true           3            212    1.045608e-16          true
+1e28       2.340194060038788e+28       true           3            212    1.114581e-18          true
+1e29       1.854149789471988e+29       true           3            212    6.119919e-17          true
+1e30       1.800284154905525e+30       true           3            212    1.204521e-17          true
+1e31       5.003869423054495e+31       true           4            265    3.282261e-17          true
+1e32       4.884302820925048e+31       true           4            265    5.231449e-17          true
+1e33       2.434728470228201e+32       true           4            265    2.423082e-18          true
+1e34       7.345269166800382e+32       true           4            265    4.615651e-17          true
+1e35       2.650031397269007e+32       true           4            265    1.886465e-18          true
+
+First failure: none in 1e2..1e35.
+Maximum relative error among stopped cases: 1.061080e-16 at target condition 1e13.
