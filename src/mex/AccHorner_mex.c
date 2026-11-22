@@ -1,7 +1,7 @@
 #include "mex.h"
 
-#include <mpfr.h>
-#include <stdbool.h>
+#define ITERCOMPHORNER_WITH_MPFR 1
+#include "functions.h"
 
 static void require_real_double(const mxArray *value, const char *name)
 {
@@ -22,25 +22,6 @@ static mpfr_prec_t parse_precision(const mxArray *value)
     }
 
     return (mpfr_prec_t)precision_double;
-}
-
-static void horner_scalar(mpfr_t y,
-                          const double *p,
-                          mwSize ncoeff,
-                          double x,
-                          mpfr_prec_t precision)
-{
-    mpfr_t xx;
-    mpfr_init2(xx, precision);
-    mpfr_set_d(xx, x, MPFR_RNDN);
-
-    mpfr_set_d(y, p[0], MPFR_RNDN);
-    for (mwSize k = 1; k < ncoeff; ++k) {
-        mpfr_mul(y, y, xx, MPFR_RNDN);
-        mpfr_add_d(y, y, p[k], MPFR_RNDN);
-    }
-
-    mpfr_clear(xx);
 }
 
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
@@ -87,7 +68,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     mpfr_init2(y, precision);
 
     for (mwSize i = 0; i < nx; ++i) {
-        horner_scalar(y, p, ncoeff, x[i], precision);
+        acchorner_eval(y, p, ncoeff, x[i]);
         yout[i] = mpfr_get_d(y, MPFR_RNDN);
     }
 
